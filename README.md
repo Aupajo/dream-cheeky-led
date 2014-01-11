@@ -17,7 +17,7 @@ For scrolling text, see also:
 
 Add this line to your application's Gemfile:
 
-    gem 'dream-cheeky-led', '0.0.1.pre'
+    gem 'dream-cheeky-led', '0.0.1.pre2'
 
 And then execute:
 
@@ -39,11 +39,13 @@ require 'dream-cheeky/led'
 message_board = DreamCheeky::LEDMessageBoard.first
 
 art = <<-ART 
-  *   *
-   * *
-    *
-   * *
-  *   *
+  *****     ***  ***
+ *  ****    *  * *  *
+*   *****   *  * *  *
+ *  ****    * *  ***
+  * ***     ***  *  *
+   ***      * *  *  *
+    *     * *  * ***
 ART
 
 message_board.draw(art)
@@ -58,6 +60,20 @@ loop do
   message_board.draw(art)
   sleep 0.3
 end
+```
+
+### Drawing from pixel data
+
+```ruby
+pixel_data = [
+  [1, 0, 0, 0, 1],
+  [0, 1, 0, 1, 0],
+  [0, 0, 1, 0, 0],
+  [0, 1, 0, 1, 0],
+  [1, 0, 0, 0, 1]
+]
+
+message_board.draw_pixels(pixel_data)
 ```
 
 ## Contributing

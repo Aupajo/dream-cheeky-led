@@ -25,8 +25,12 @@ module DreamCheeky
       end
 
       def draw(ascii)
-        pattern = Pattern.from_ascii(ascii)
-        screen_state = ScreenState.new(pattern.to_a)
+        pixel_data = ASCIIDrawing.new(ascii).pixel_data
+        draw_pixels(pixel_data)
+      end
+
+      def draw_pixels(pixel_data)
+        screen_state = ScreenState.new(pixel_data)
         send_packets(screen_state.packets)
       end
 

@@ -14,6 +14,10 @@ module DreamCheeky
         Pattern.new(rows)
       end
 
+      def pixel_data
+        rows
+      end
+
       def self.to_pattern(string)
         self.new(string).to_pattern
       end
