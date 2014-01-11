@@ -1,6 +1,9 @@
 # Dream Cheeky LED Message Board
 
-![Such art.](http://i.imgur.com/CVZJcqd.jpg)
+[![Very build status](https://travis-ci.org/Aupajo/dream-cheeky-led.png?branch=master)](https://travis-ci.org/Aupajo/dream-cheeky-led)
+[![So Code Climate](https://codeclimate.com/github/Aupajo/dream-cheeky-led.png)](https://codeclimate.com/github/Aupajo/dream-cheeky-led)
+
+![Such art](http://i.imgur.com/CVZJcqd.jpg)
 
 Control the [Dream Cheeky LED Message Board](http://www.dreamcheeky.com/led-message-board) by drawing ASCII.
 
@@ -28,6 +31,8 @@ Or install it yourself as:
 
 ### Drawing with ASCII
 
+The message board contains 21 x 7 pixels. Any drawing that fits within those dimensions will work.
+
 ```ruby
 require 'dream-cheeky/led'
 
@@ -43,6 +48,8 @@ ART
 
 message_board.draw(art)
 ```
+
+You can use any character that isn't a space to represent a pixel (e.g. `*`, `x`, `o`).
 
 The drawing will appear briefly, and disappear. This is a limitation with the device. To persist the drawing to the screen, wrap the call to `draw` in a loop:
 
