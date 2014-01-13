@@ -2,6 +2,8 @@ module DreamCheeky
   module LEDMessageBoard
     class ASCIIDrawing
       EMPTY_VALUES = [nil, " "]
+      OFF_STATE = 0
+      ON_STATE = 1
 
       attr_reader :lines
 
@@ -10,16 +12,8 @@ module DreamCheeky
         @ignore_leading_whitespace = ignore_leading_whitespace
       end
 
-      def to_pattern
-        Pattern.new(rows)
-      end
-
       def pixel_data
         rows
-      end
-
-      def self.to_pattern(string)
-        self.new(string).to_pattern
       end
 
       protected
@@ -67,7 +61,7 @@ module DreamCheeky
       end
 
       def character_state(char)
-        is_empty?(char) ? Pattern::OFF_STATE : Pattern::ON_STATE
+        is_empty?(char) ? OFF_STATE : ON_STATE
       end
     end
   end
